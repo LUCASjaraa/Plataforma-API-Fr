@@ -1,0 +1,287 @@
+@use "~bootstrap/scss/bootstrap";
+@use "mixins/buttons" as mixins-buttons;
+@use "mixins/forms";
+@use "mixins/hover";
+@use "variables/bootstrap-material-design";
+@use "variables/buttons" as variables-buttons;
+@use "variables/colors";
+@use "variables/shadow";
+
+.mat-button.btn,
+.mat-raised-button.btn,
+.mat-raised-button.btn:not([class*="mat-elevation-z"]),
+.btn {
+  position: relative;
+  padding: 12px 30px;
+  margin: variables-buttons.$bmd-btn-margin-bottom 1px;
+  min-width: auto;
+  font-size: 0.75rem; //  12px
+  font-weight: 400;
+  line-height: bootstrap-material-design.$bmd-line-height;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  letter-spacing: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  border-radius: bootstrap.$border-radius-sm;
+  outline: 0;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow, transform;
+  @include mixins-buttons.undo-bs-tab-focus();
+
+  //--
+  // Colors
+  @include mixins-buttons.bmd-raised-button-color();
+  &.btn-white {
+    &,
+    &:focus,
+    &:hover {
+      background-color: colors.$white-color;
+      color: colors.$gray-color;
+    }
+    &.btn-link {
+      color: colors.$white-color;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+  &.btn-link:hover,
+  &.btn-link:focus,
+  &.btn-link:active {
+    text-decoration: none !important;
+  }
+
+  @include bootstrap.hover-focus();
+
+  //---
+  // btn-raised
+  &.btn-raised,
+  .btn-group-raised & {
+    // baseline shadow
+    // @include box-shadow($bmd-shadow-2dp);
+
+    // reverse any of the above for links
+    &.btn-link {
+      box-shadow: none;
+      @include hover.bmd-hover-focus-active() {
+        box-shadow: none;
+      }
+    }
+
+    @include forms.bmd-disabled() {
+      box-shadow: none;
+    }
+  }
+
+  //---
+  // btn-outline
+  @include mixins-buttons.bmd-outline-button-color();
+
+  // Size variations
+  &.btn-lg,
+  .btn-group-lg & {
+    @include bootstrap.button-size(
+      bootstrap.$input-btn-padding-y-lg,
+      bootstrap.$input-btn-padding-x-lg,
+      variables-buttons.$bmd-btn-font-size,
+      bootstrap-material-design.$btn-lg-line-height,
+      bootstrap.$border-radius-sm
+    );
+  }
+  &.btn-sm,
+  .btn-group-sm & {
+    @include bootstrap.button-size(
+      bootstrap.$input-btn-padding-y-sm,
+      bootstrap.$input-btn-padding-x-sm,
+      variables-buttons.$bmd-btn-font-size-sm,
+      bootstrap.$line-height-sm,
+      bootstrap.$border-radius-sm
+    );
+  }
+
+  &.btn-round {
+    border-radius: bootstrap-material-design.$border-radius-extreme;
+
+    > .mat-button-focus-overlay,
+    .mat-button-ripple {
+      border-radius: bootstrap-material-design.$border-radius-extreme;
+    }
+  }
+
+  &.btn-fab,
+  &.btn-just-icon {
+    // see above for color variations
+    font-size: bootstrap-material-design.$mdb-btn-fab-font-size;
+    height: bootstrap-material-design.$mdb-btn-fab-size;
+    min-width: bootstrap-material-design.$mdb-btn-fab-size;
+    width: bootstrap-material-design.$mdb-btn-fab-size;
+    // margin: auto;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    line-height: bootstrap-material-design.$mdb-btn-fab-size;
+
+    &.btn-round {
+      border-radius: 50%;
+    }
+
+    .btn-group-sm &,
+    &.btn-sm,
+    &.btn-fab-mini {
+      height: bootstrap-material-design.$mdb-btn-fab-size-mini + 1;
+      min-width: bootstrap-material-design.$mdb-btn-fab-size-mini + 1;
+      width: bootstrap-material-design.$mdb-btn-fab-size-mini + 1;
+
+      .material-icons,
+      .fa {
+        font-size: bootstrap-material-design.$mdb-btn-icon-size-mini;
+        line-height: bootstrap-material-design.$mdb-btn-fab-size-mini;
+      }
+    }
+
+    .btn-group-lg &,
+    &.btn-lg {
+      height: bootstrap-material-design.$mdb-btn-fab-size-lg + 1;
+      min-width: bootstrap-material-design.$mdb-btn-fab-size-lg + 1;
+      width: bootstrap-material-design.$mdb-btn-fab-size-lg + 1;
+      line-height: bootstrap-material-design.$mdb-btn-fab-size-lg;
+
+      .material-icons,
+      .fa {
+        font-size: bootstrap-material-design.$mdb-btn-icon-size;
+        line-height: bootstrap-material-design.$mdb-btn-fab-size-lg;
+      }
+    }
+
+    .material-icons,
+    .fa {
+      margin-top: 0;
+      position: absolute;
+      width: 100%;
+      transform: none;
+      left: 0;
+      top: 0;
+      height: 100%;
+
+      line-height: bootstrap-material-design.$mdb-btn-fab-size;
+      font-size: bootstrap-material-design.$mdb-btn-just-icon-font-size;
+    }
+  }
+}
+
+.btn-just-icon {
+  &.btn-lg {
+    font-size: bootstrap-material-design.$mdb-btn-fab-font-size;
+    height: bootstrap-material-design.$mdb-btn-fab-size;
+    min-width: bootstrap-material-design.$mdb-btn-fab-size;
+    width: bootstrap-material-design.$mdb-btn-fab-size;
+  }
+}
+
+.input-group-btn > .btn {
+  border: 0;
+}
+
+// Align icons inside buttons with text
+.btn .material-icons,
+.btn:not(.btn-just-icon):not(.btn-fab) .fa {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  margin-top: -1em;
+  margin-bottom: -1em;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+// Disabled buttons and button groups
+.mat-raised-button.btn,
+.input-group-btn .mat-raised-button.btn,
+.btn-group,
+.btn-group-vertical {
+  // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
+  @include forms.bmd-disabled() {
+    .bg-inverse & {
+      color: variables-buttons.$bmd-inverse-btn-disabled;
+    }
+
+    // flat buttons shouldn't lose transparency on disabled hover/focus
+  }
+}
+
+// btn-group variations
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  margin: 10px 1px;
+
+  // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
+  //&.open {
+  //  .dropdown-toggle {
+  //  }
+  //
+  //  > .dropdown-toggle.btn {
+  //    @include bmd-raised-button-color-bg();
+  //  }
+  //}
+
+  .dropdown-menu {
+    border-radius: 0 0 bootstrap.$border-radius bootstrap.$border-radius;
+  }
+
+  &.btn-group-raised {
+    @include bootstrap.box-shadow(shadow.$bmd-shadow-2dp);
+  }
+
+  .mat-raised-button.btn + .mat-raised-button.btn,
+  .mat-raised-button.btn,
+  .mat-raised-button.btn:active,
+  .btn-group {
+    margin: 0;
+  }
+
+  // remove margin from nested btn-group(s) to properly align them with the outer buttons
+  > .btn-group {
+    margin: 0;
+  }
+}
+.btn-group > .mat-raised-button.btn:not(:first-child),
+.btn-group > .btn-group:not(:first-child) > .mat-raised-button.btn,
+.btn-group > .mat-raised-button.btn:not(:first-child) .mat-button-ripple,
+.btn-group
+  > .btn-group:not(:first-child)
+  > .mat-raised-button.btn
+  .mat-button-ripple,
+.btn-group > .mat-raised-button.btn:not(:first-child) .mat-button-focus-overlay,
+.btn-group
+  > .btn-group:not(:first-child)
+  > .mat-raised-button.btn
+  .mat-button-focus-overlay {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-group:not(:last-child) > .mat-raised-button.btn,
+.btn-group
+  > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle)
+  .mat-button-ripple,
+.btn-group
+  > .btn-group:not(:last-child)
+  > .mat-raised-button.btn
+  .mat-button-ripple,
+.btn-group
+  > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle)
+  .mat-button-focus-overlay,
+.btn-group
+  > .btn-group:not(:last-child)
+  > .mat-raised-button.btn
+  .mat-button-focus-overlay {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-no-ripple .mat-button-ripple {
+  display: none;
+}

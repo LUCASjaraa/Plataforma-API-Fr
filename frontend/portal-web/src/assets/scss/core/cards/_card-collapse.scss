@@ -1,0 +1,50 @@
+@use "~bootstrap/scss/bootstrap";
+@use "../mixins/vendor-prefixes";
+@use "../variables/bootstrap-material-design";
+@use "../variables/brand";
+@use "../variables/colors";
+
+.card-collapse,
+.card-collapse .card-header {
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.card-collapse {
+  margin: 0;
+
+  & .card-header {
+    border-bottom: 1px solid #ddd;
+    padding: 25px 10px 5px 0px;
+    margin: 0;
+    box-shadow: none !important;
+    background: bootstrap.$white;
+
+    a {
+      color: colors.$black-color;
+      font-size: 0.9375rem;
+      display: block;
+
+      &:hover,
+      &:active,
+      &[aria-expanded="true"] {
+        color: brand.$brand-rose;
+      }
+
+      i {
+        float: right;
+        top: 4px;
+        position: relative;
+      }
+
+      &[aria-expanded="true"] i {
+        @include vendor-prefixes.rotate-180();
+      }
+    }
+  }
+
+  .card-body {
+    padding: 15px 0px 5px;
+  }
+}

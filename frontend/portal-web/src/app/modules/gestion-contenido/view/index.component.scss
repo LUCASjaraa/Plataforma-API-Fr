@@ -1,0 +1,52 @@
+.page {
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
+  &__box {
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+  }
+  &__content {
+    min-height: calc(100vh - 178px);
+    border-radius: 5px;
+    margin-top: -2rem;
+    background: rgb(255, 255, 255);
+    color: black;
+    font-size: 20px;
+    &-data {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .products--grid {
+    display: flex;
+    flex-direction: column;
+  }
+  //tablets
+  @media screen and (min-width: 40em) and (max-width: 63.9em){
+    .products--grid {
+      display:grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
+    }
+  }
+
+  //web desk
+  @media screen and (min-width: 64em){
+    .products--grid {
+      display:grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
+    }
+  }
+
+
+
+}
+
+
+
+

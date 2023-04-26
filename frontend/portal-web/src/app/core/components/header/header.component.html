@@ -1,0 +1,119 @@
+<!-- <mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+        <button mat-icon-button (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+         <div class="row justify-content-between  ml-auto">
+          <button routerLink="/prepostcatastrofe" class=" btn col p-5">
+            Catastrofes
+          </button>
+          <button routerLink="/juegayaprende" class="btn col p-5">
+            Modulo Educativo
+          </button>
+          <button routerLink="/galeria" class=" btn col p-5">
+            Galeria
+          </button>
+          <button routerLink="/geo" class="btn col p-5" >
+            Gis
+          </button>
+          <button routerLink="/acercade" class="btn col p-5">
+            Acerca de
+          </button>
+        </div>
+
+         <div class="row mr-2 ml-auto">
+            <ul class="row m-0 align-items-center">
+                <li>
+                    <button
+                        mat-button
+                        [matMenuTriggerFor]="menu"
+                        class="user mt-2 d-flex align-items-center"
+                    >
+                <img src="./assets/img/default-avatar.png" alt="" class="user-image mr-1 p-2" />
+
+              Identificate
+              <mat-icon class="user-image-icon ml-1"
+                >keyboard_arrow_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item onclick="window.location.href='/login'">
+                <mat-icon>account_circle</mat-icon>
+                Ingresar
+              </button>
+              <button mat-menu-item onclick="window.location.href='/home'">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+
+
+
+  </mat-toolbar-row>
+  </mat-toolbar> -->
+
+  <nav class="navbar  navbar-expand-lg sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <a class="navbar-brand" href="/home">
+      <img src="./assets/imagenes/logo-onemi.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+      Portal FR
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-nav ms-auto text-center" *ngFor="let opcion of bar">
+          <a class="nav-item nav-link active" href={{opcion[1]}}>{{opcion[0]}}</a>
+        </div>
+        <div class="navbar-nav text-center ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Identificate
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/home">Cerrar Sesion</a></li>
+            </ul>
+
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- <nav class="navbar  navbar-expand-lg sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+
+      <button class="navbar-brand" type="button" (click)="toggleSidebar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/home">
+        <img src="./assets/imagenes/logo-onemi.png" alt="" width="25" height="24" class="d-inline-block align-text-top">
+        Portal FR
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="navbar-nav ms-auto text-center" *ngFor="let opcion of bar">
+          <a class="nav-item nav-link active" href={{opcion[1]}}>{{opcion[0]}}</a>
+        </div>
+        <div class="navbar-nav text-center ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Identificate
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/login">Ingresar</a></li>
+              <li><a class="dropdown-item" href="/home">Cerrar Sesion</a></li>
+            </ul>
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav> -->
+
+

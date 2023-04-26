@@ -1,0 +1,27 @@
+<div *ngIf="this.lineChartData.datasets[0].data.length != this.largo[0]; else divGrafica"
+  class="alert alert-info">
+  Cargando datos...
+</div>
+
+<ng-template #divGrafica>
+  <div style="display: block">
+    <canvas baseChart 
+                [data]="lineChartData"
+                [options]="lineChartOptions"
+                [type]="lineChartType">
+    </canvas>
+    </div>
+</ng-template>
+
+
+
+      <!-- <table class="table table-responsive table-condensed">
+        <tr>
+          <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+        </tr>
+        <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
+          <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
+        </tr>
+      </table> -->
+
+   

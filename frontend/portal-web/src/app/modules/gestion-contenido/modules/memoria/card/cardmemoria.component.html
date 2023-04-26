@@ -1,0 +1,27 @@
+<mat-card  >
+    <mat-card-header>
+      <mat-card-title>{{memoria.titulo}}</mat-card-title>
+      <mat-card-subtitle><app-datausuario [id]="memoria.usuario_id"> </app-datausuario> </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content class="products" >
+        <div  *ngFor="let img of memoria.img; index as i; " >
+
+          <app-imagen  [src]="img"></app-imagen>
+          <br>
+          <br>
+          <mat-card-subtitle>  {{memoria.fechas[i]}}</mat-card-subtitle>
+
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button>Aprobar</button>
+      <button mat-button>Eliminar</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+
+

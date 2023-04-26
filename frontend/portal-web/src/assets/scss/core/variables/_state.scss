@@ -1,0 +1,19 @@
+@use "bootstrap-material-design-base";
+@use "brand";
+
+// Form states and alerts
+//
+// Define colors for form feedback states and, by default, alerts.
+$state-success-text: bootstrap-material-design-base.$bmd-inverse !default;
+$state-success-bg: brand.$brand-success !default;
+
+$state-info-text: bootstrap-material-design-base.$bmd-inverse !default;
+$state-info-bg: brand.$brand-info !default;
+
+$state-warning-text: bootstrap-material-design-base.$bmd-inverse !default;
+$state-warning-bg: brand.$brand-warning !default;
+
+$state-danger-text: bootstrap-material-design-base.$bmd-inverse !default;
+$state-danger-bg: brand.$brand-danger !default;
+
+$state-rose-bg: brand.$brand-rose !default;

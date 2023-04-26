@@ -1,0 +1,20 @@
+
+<!-- aqui se definen los false para obtener solo los que no estan aprobados-->
+<ng-container *ngIf="comentario.aceptado">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{comentario.titulo}}</mat-card-title>
+      <mat-card-subtitle><app-datausuario [id]="comentario.usuario_id"> </app-datausuario> - {{comentario.fecha_subida}}</mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+        <p>  {{comentario.contenido}}</p>
+        <hr>
+    </mat-card-content>
+
+  </mat-card>
+
+</ng-container>
+
+
+

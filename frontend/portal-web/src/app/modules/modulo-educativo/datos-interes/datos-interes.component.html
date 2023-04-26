@@ -1,0 +1,24 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Datos de Interes</div>
+    <div class="page__content shadow p-3 position-relative">
+  
+        <ng-container *ngFor="let datos of datosInteres">
+            <mat-card>
+
+              <mat-card-header>
+                <mat-card-title>{{datos.titulo}}</mat-card-title>      
+              </mat-card-header>
+
+              <mat-card-content *ngFor="let Pinteres of datos.datos_interes">
+                  <h6>{{Pinteres.titulo}}</h6>
+                  <p>  {{Pinteres.descripcion}}</p> 
+                  <hr>
+              </mat-card-content>
+          
+            </mat-card>
+          
+          </ng-container>
+          
+    </div>
+</div>
+  

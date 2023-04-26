@@ -1,0 +1,25 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Galeria</div>
+    <div class="page__content shadow p-3 position-relative">
+
+      <app-card-galeria [galeria]="galeriaListEspecifica"></app-card-galeria>
+    <!-- <div class="container py-4">
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let image of galeriaList  | paginate: {itemsPerPage: 3, currentPage: page}">
+          <div class="card" >
+            <img src="{{ objectValue(image)[3]}}" class="card-img-top" id=image/>
+            <div class="card-body">
+              <h5 class="card-title">{{objectValue(image)[0]}}</h5> 
+              <app-datausuario [id]="objectValue(image)[0]"> </app-datausuario>
+                <p>{{ objectValue(image)[6] }}</p>
+                <p>{{ objectValue(image)[5] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div> -->
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<mat-tab-group  mat-align-tabs="center">
+  <mat-tab label="Relatos">
+    <div class="im">
+      <app-viewrelatos [id]="this.mPuntoIntres.id"></app-viewrelatos>
+    </div>
+  </mat-tab>
+
+    <!--<mat-tab label="Punto de interes ">
+    <app-puntosinteres [fPuntoIntres]="this.mPuntoIntres" [escenario_id]="this.mPuntoIntres.escenario_id"></app-puntosinteres>
+  </mat-tab>-->
+  <mat-tab label="slides">
+    <div class="slides">
+      <app-viewslides [id]="this.mPuntoIntres.id" ></app-viewslides>
+    </div>
+  </mat-tab>
+
+
+  <mat-tab label="Galeria">
+    <div class="im">
+      <app-viewgaleria [id]="this.mPuntoIntres.id" ></app-viewgaleria>
+    </div>
+  </mat-tab>
+  <mat-tab label="Comentarios">
+    <div class="im">
+      <app-viewcomentarios [id]="this.mPuntoIntres.id"></app-viewcomentarios>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Datos de interes">
+    <div class="im">
+      <app-viewdatosdeinteres [id]="this.mPuntoIntres.id" ></app-viewdatosdeinteres>
+    </div>
+  </mat-tab>
+
+
+
+</mat-tab-group>
+

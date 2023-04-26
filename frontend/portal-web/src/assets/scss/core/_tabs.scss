@@ -1,0 +1,91 @@
+@use "~bootstrap/scss/bootstrap";
+@use "mixins/navs";
+@use "variables/bootstrap-material-design";
+@use "variables/colors";
+@use "variables/nav";
+
+.nav-tabs {
+  border: 0;
+  border-radius: bootstrap-material-design.$border-radius-base;
+  padding: 0 15px;
+
+  .nav-item {
+    .nav-link {
+      color: colors.$white-color;
+      border: 0;
+      margin: 0;
+      border-radius: bootstrap-material-design.$border-radius-base;
+      line-height: bootstrap-material-design.$mdb-btn-font-size-base * 2;
+      text-transform: uppercase;
+      font-size: bootstrap-material-design.$mdb-btn-font-size-base;
+      padding: 10px 15px;
+      background-color: transparent;
+      transition: 0.3s background-color 0s;
+
+      &:hover {
+        border: 0;
+      }
+    }
+    .nav-link,
+    .nav-link:hover,
+    .nav-link:focus {
+      border: 0 !important;
+      color: colors.$white-color !important;
+      font-weight: bootstrap.$font-weight-bold;
+    }
+    &.disabled .nav-link,
+    &.disabled .nav-link:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .material-icons {
+      margin: -1px 5px 0 0;
+    }
+
+    .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: 0.3s background-color 0.2s;
+    }
+  }
+
+  .nav-link {
+    border-bottom: nav.$bmd-nav-tabs-border-size solid transparent;
+  }
+
+  // colors
+  @include navs.bmd-tabs-color(
+    nav.$bmd-nav-tabs-color,
+    nav.$bmd-nav-tabs-active-color,
+    nav.$bmd-nav-tabs-active-border-color,
+    nav.$bmd-nav-tabs-disabled-link-color,
+    nav.$bmd-nav-tabs-disabled-link-color-hover
+  );
+
+  &.header-primary {
+    @include navs.bmd-tabs-color(
+      nav.$bmd-nav-tabs-primary-color,
+      nav.$bmd-nav-tabs-primary-active-color,
+      nav.$bmd-nav-tabs-primary-active-border-color,
+      nav.$bmd-nav-tabs-primary-disabled-link-color,
+      nav.$bmd-nav-tabs-primary-disabled-link-color-hover
+    );
+  }
+
+  &.bg-inverse {
+    @include navs.bmd-tabs-color(
+      nav.$bmd-nav-tabs-inverse-color,
+      nav.$bmd-nav-tabs-inverse-active-color,
+      nav.$bmd-nav-tabs-inverse-active-border-color,
+      nav.$bmd-nav-tabs-inverse-disabled-link-color,
+      nav.$bmd-nav-tabs-inverse-disabled-link-color-hover
+    );
+  }
+}
+
+.card-nav-tabs {
+  margin-top: 45px;
+
+  .card-header {
+    margin-top: -30px !important;
+  }
+}

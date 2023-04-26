@@ -1,0 +1,97 @@
+@use "mixins/colored-shadows";
+@use "mixins/vendor-prefixes";
+@use "variables/bootstrap-material-design";
+
+.carousel {
+  .carousel-control {
+    height: 15%;
+    margin: auto;
+    &.left,
+    &.right {
+      background-image: none;
+      i {
+        right: 0;
+      }
+    }
+  }
+
+  .card {
+    margin-top: 0;
+  }
+
+  .item {
+    text-align: center;
+  }
+  &.carousel-full-nagivation {
+    .carousel-control {
+      width: 50%;
+
+      &.left,
+      &.right {
+        background-image: none;
+      }
+
+      .material-icons,
+      .fa {
+        display: none;
+      }
+    }
+    .left {
+      // cursor: url("../img/arrow-left.png"), url("../img/arrow-left.cur"), default !important;
+    }
+    .right {
+      // cursor: url("../img/arrow-right.png"), url("../img/arrow-right.cur"), default !important;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    .material-icons {
+      z-index: 5;
+      display: inline-block;
+      font-size: 50px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      margin: auto;
+    }
+  }
+  .carousel-indicators {
+    bottom: 5px;
+
+    li,
+    .active {
+      margin: 11px 10px;
+    }
+
+    li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      text-indent: -999px;
+      cursor: pointer;
+      border: 1px solid #fff;
+      background: #ffffff;
+      @include colored-shadows.shadow-2dp();
+      @extend .animation-transition-general !optional;
+      border-radius: bootstrap-material-design.$border-radius-small;
+    }
+    .active {
+      margin-top: 10px;
+      @include vendor-prefixes.transform-scale(1.5);
+      @include colored-shadows.shadow-4dp();
+    }
+  }
+
+  .carousel-caption {
+    padding-bottom: 45px;
+
+    .material-icons {
+      position: relative;
+      top: 5px;
+    }
+  }
+}

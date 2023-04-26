@@ -1,0 +1,9 @@
+
+
+<ng-container *ngFor="let comentarios of lComentarios">
+  <ng-container *ngFor="let comentario of comentarios.comentarios">
+    <app-cardcomentario [comentario] = "comentario"></app-cardcomentario>
+  </ng-container>
+</ng-container>
+
+

@@ -1,0 +1,64 @@
+@use "variables/bootstrap-material-design";
+@use "variables/brand";
+@use "variables/colors";
+@use "variables/type";
+
+.info {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 70px 0 30px;
+
+  .icon {
+    color: colors.$gray-color;
+
+    > i {
+      font-size: 3.85rem;
+    }
+  }
+  .info-title {
+    color: colors.$black-color;
+    margin: 0.875rem * 2 0 0.875rem;
+  }
+  p {
+    color: colors.$gray-color;
+  }
+}
+
+.info-horizontal {
+  .icon {
+    float: left;
+    margin-top: 24px;
+    margin-right: 10px;
+
+    > i {
+      font-size: type.$font-size-h2;
+    }
+  }
+  .description {
+    overflow: hidden;
+  }
+}
+
+.card-icon {
+  &.icon-primary {
+    color: brand.$brand-primary;
+  }
+  &.icon-info {
+    color: brand.$brand-info;
+  }
+  &.icon-success {
+    color: brand.$brand-success;
+  }
+  &.icon-warning {
+    color: brand.$brand-warning;
+  }
+  &.icon-danger {
+    color: brand.$brand-danger;
+  }
+  &.icon-rose {
+    color: brand.$brand-rose;
+  }
+  &.icon-white {
+    color: colors.$white-color;
+  }
+}

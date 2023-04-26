@@ -1,0 +1,19 @@
+<div *ngIf="this.pieChartData.datasets[0].data.length != this.largo[0]; else divGrafica"
+   class="alert alert-info">
+   Cargando datos...
+</div>
+
+
+<ng-template #divGrafica>
+   <div class ="row">
+      <div class="col-md-8 m-auto">
+         <div class="chart">
+            <canvas baseChart
+               [data]="pieChartData"
+               [type]="pieChartType"
+               [options]="pieChartOptions">
+            </canvas>
+          </div>
+       </div>
+    </div>
+</ng-template>

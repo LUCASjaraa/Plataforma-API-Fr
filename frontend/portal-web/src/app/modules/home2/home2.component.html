@@ -1,0 +1,39 @@
+<div class="container-fluid page ">
+  <div class="d-flex page__box p-3 mt-2">Riesgos</div>
+
+  <div class="page__content shadow p-3 position-relative">
+
+     <div class="row">
+      <div class="col-12  p-2 text-center">
+        <app-caarousel
+          [marcador]="img"
+        >
+        </app-caarousel>
+
+      </div>
+
+      <div class="d-flex justify-content-sm-between ">
+        <div class="p-2">
+          <button class=" btn play">
+            <mat-icon>play_circle_filled</mat-icon>
+          </button>
+        </div>
+        <div class="p-2 btn-group" >
+          <button class="btn btn-secondary" (click)="ControlText(10)">a</button>
+          <button class="btn btn-secondary" (click)="ControlText(20)">aA</button>
+          <button class="btn btn-secondary" (click)="ControlText(30)">AA</button>
+        </div>
+      </div>
+
+      <div class="col-12 p-3">
+            <p [ngStyle]="{'font-size.px':textSize}">Portal Fondef de Riesgo busca contribuir a la valoración de las vivencias y el rescate de las experiencias
+              que nos han dejado los desastres que han impactado a nuestro país en las últimas décadas. Revalorar y resignificar
+              la memoria de los desastres nos hace menos frágiles para enfrentar eventos futuros, pues nos permite planificar los
+              procesos de preparación de una manera más integral, recogiendo y valorando las experiencias acumuladas en los territorios
+              de nuestro país.
+            </p>
+      </div>
+    </div>
+
+    </div>
+  </div>

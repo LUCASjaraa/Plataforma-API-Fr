@@ -1,0 +1,18 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Home</div>
+    <div class="page__content shadow p-3 position-relative">
+        <ktd-grid [cols]="cols"
+          [rowHeight]="rowHeight"
+          [layout]= "layout"
+          (layoutUpdated)="onLayoutUpdated($event)">
+          <ktd-grid-item *ngFor="let item of layout; trackBy:trackById" [id] = "item.id">
+            <!-- <img src="./assets/imagenes/desastres/erupcion.jpg" alt="Company Logo" /> -->
+            <!-- <img src="./assets/imagenes/desastres/sismos{{item.id}}.png" alt="Company Logo" /> -->
+            <!-- <img src="./assets/imagenes/logo-onemi.png" alt="Company Logo" /> -->
+            <!-- <img src="./assets/imagenes/logo-onemi.png" alt="Company Logo" /> -->
+            <img src="./assets/imagenes/desastres/{{item.id}}.jpg" alt="Company Logo" />
+            
+          </ktd-grid-item>
+        </ktd-grid>   
+    </div>
+</div>

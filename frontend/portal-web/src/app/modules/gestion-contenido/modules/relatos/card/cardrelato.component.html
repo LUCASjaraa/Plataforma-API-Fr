@@ -1,0 +1,24 @@
+<ng-container *ngIf="relato.aceptado">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{relato.titulo}}</mat-card-title>
+      <mat-card-subtitle><app-datausuario [id]="relato.usuario_id"> </app-datausuario> - {{relato.fecha_subida}}</mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+      <audio controls>
+        <source [src]="relato.contenido" type="audio/mp3">
+      Your browser does not support the audio element.
+      </audio>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button (click)="aprobarRelato(relato.relato_id)">Aprobar</button>
+      <button mat-button (click)="deleteRelato(relato.relato_id)">Eliminar</button>
+    </mat-card-actions>
+  </mat-card>
+
+</ng-container>
+
+
+

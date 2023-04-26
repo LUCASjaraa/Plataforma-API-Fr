@@ -1,0 +1,176 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Dashboard</div>
+    <div class="page__content shadow p-3 position-relative">
+   
+      <div class="row" id="menuSuperior">
+        <div class="col"></div>
+        <!-- <div class="col"></div> -->
+        <div class="col p-2 text-center" style = "border: 2px solid #1e293b" >
+          <h6> Total Puntos de Interes </h6>
+          <h6> {{cantEventos}} </h6>
+        </div>
+        <div class="col p-2 text-center" style = "border: 2px solid #1e293b">
+        <!-- <h2> Visitas Diarias - Mensuales </h2> -->
+        <h6> Cantidad total de valoraciones </h6>
+        <h6> {{cantValoraciones}} </h6>
+        </div>
+        <div class="col p-2 text-center" style = "border: 2px solid #1e293b">
+          <!-- Promedio de valoraciones Diarias - Mensuales -->
+          <h6> Promedio de valoraciones historico </h6> 
+          <h6> {{promVal}} </h6>
+        </div>
+        <div class="col p-2 text-center" style = "border: 2px solid #1e293b">
+          <!-- Promedio de valoraciones Diarias - Mensuales -->
+          <h6> Promedio de contenido inmersivo </h6> 
+          <h6> {{promInmersivo}} </h6>
+        </div>
+        <div class="col"></div>
+      </div>  
+      <div class="row"  id="dashboard">
+          <div class="col-3">
+
+            <div class="row text-center" style = "border: 2px solid #1e293b">
+              <h6> Visitas por Escenario </h6>
+              <app-barra [labels]="this.labelDataEscenario" [data]="this.datosBarChartL" [largo]="this.largoDataEscenario" [etiqueta]="this.etiquetaBarChartL"></app-barra> 
+            </div>
+            <div class="row mt-3 text-center" style = "border: 2px solid #1e293b">
+              <h6> Relatos por Escenario </h6>
+              <app-barra-doble [labels]="this.labelDataEscenario" [data]="this.datosLineChartRelatos" [largo]="this.largoDataEscenario" [marcador]="this.marcadorRelatos"></app-barra-doble>
+            </div>
+            <div class="row mt-3 text-center" style = "border: 2px solid #1e293b">
+              <h6> Puntos de interes por Escenario {{pInteresDonaChart}}</h6>
+              <app-dona [labels]="this.labelDataEscenario" [data]="pInteresDonaChart" [largo]="this.largoDataEscenario"></app-dona>
+            </div>
+          </div>
+
+          <div class="col-6">
+              <app-dashmap (mapData)= "recibirData($event)"></app-dashmap>
+          </div>
+          
+          <div class="col-3">
+            <div class="row text-center" style = "border: 2px solid #1e293b">
+              <h6> Numero de Valoraciones por Escenario </h6>
+              <app-barra [labels]="this.labelDataEscenario" [data]="this.datosBarChartR" [largo]="this.largoDataEscenario" [etiqueta]="this.etiquetaBarChartR"></app-barra> 
+            </div>
+            <div class="row mt-3 text-center" style = "border: 2px solid #1e293b">
+              <h6> Comentarios por Escenario </h6>
+              <app-barra-doble [labels]="this.labelDataEscenario" [data]="this.datosLineChartComentarios" [largo]="this.largoDataEscenario" [marcador]="this.marcadorComentario"></app-barra-doble>
+            </div>
+            <div class="row mt-3 text-center" style = "border: 2px solid #1e293b">
+              <h6> Puntos de interes por Categoria </h6>
+              <app-pie [labels]="this.labelPieChart" [data]="this.datosPieChart" [largo]="this.largoDataPieChart"></app-pie>
+            </div>
+          </div>
+      </div>
+
+          <div class="row" id="tablas">
+            <div class="col-lg-4">
+              <h5 style="text-align:center; margin-bottom: 33px;">Lugares mas Visitados</h5>
+              <app-tabla-resumen [data]="this.dataTablaVisitas" [label]="this.labelTablaVisitas"></app-tabla-resumen>
+            </div>
+
+            <div class="col-lg-4">
+              <h5 style="text-align:center;">Lugares con mejor Valoracion de contenido Inmersivo </h5>
+
+              <app-tabla-resumen [data]="this.dataTablaInmersion" [label]="this.labelTablaInmersion"></app-tabla-resumen>
+            </div>
+
+            <div class="col-lg-4">
+              <h5 class="highcharts-title" style="text-align:center;">Lugares con mejor Valoracion de contenido General </h5>
+
+              <app-tabla-resumen [data]="this.dataTablaInteres" [label]="this.labelTablaInteres"></app-tabla-resumen>
+            </div>
+
+
+            <!-- <div style="overflow-x:auto;" class="col-lg-4">
+              <h5 class="highcharts-title" style="text-align:center; color: rgb(51, 51, 51); font-size: 18px; fill: rgb(51, 51, 51);">Top 5 Puntos de Interes mas Visitados </h5>
+              <table class="table table-striped" style="font-size: 11px; margin-top: 30px;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Punto de Interes</th>
+                    <th scope="col">Cantidad de Visitas</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let x of this.dataTablaVisitas; let i = index">
+                    <th scope="row">{{  i + 1 }}</th>
+                    <td>{{ x.nombre_evento }}</td>
+                    <td>{{ x.cantidad_visitas.toFixed(2) }}</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div> 
+
+            <div style="overflow-x:auto;" class="col-lg-4">
+            <h5 class="highcharts-title" style="text-align:center; color: rgb(51, 51, 51); font-size: 18px; fill: rgb(51, 51, 51);">Top 5 Puntos de Interes con mejor Valoracion de contenido Inmersivo </h5>
+            <table class="table table-striped" style="font-size: 11px;">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Punto de Interes</th>
+                  <th scope="col">Promedio de Valoracion</th>
+   
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let x of this.dataTablaInmersion; let i = index">
+                  <th scope="row">{{  i + 1 }}</th>
+                  <td>{{ x.nombre_evento }}</td>
+                  <td>{{ x.promedio_val_inmersion.toFixed(2)}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+            </div> 
+
+    
+            <div style="overflow-x:auto;" class="col-lg-4">
+          <h5 class="highcharts-title" style="text-align:center; color: rgb(51, 51, 51); font-size: 18px; fill: rgb(51, 51, 51);">Top 5 Puntos de Interes con mejor Valoracion de contenido General </h5>
+          <table class="table table-striped" style="font-size: 11px;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Punto de Interes</th>
+                <th scope="col">Promedio de Valoracion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of this.dataTablaInteres; let i = index">
+                <th scope="row">{{  i + 1 }}</th>
+                <td>{{ x.nombre_evento }}</td>
+                <td>{{ x.promedio_val_interes.toFixed(2) }}</td>
+              </tr>
+            </tbody>
+          </table>
+            </div>  -->
+
+          <div style="overflow-x:auto;" class="col-lg-12" style="margin-top:30px">
+            <h5 class="highcharts-title" style="text-align:center; color: rgb(51, 51, 51); font-size: 18px; fill: rgb(51, 51, 51);"> Promedio de Valoraciones por Punto de Interes </h5>
+
+            <table class="table table-striped table-hover table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Puntos de interes</th>
+                  <th *ngFor="let item of myData"> {{item.titulo}} </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr >
+                  <td> Promedio de valoracion General </td>
+                  <td *ngFor="let item of promEventoVal"> {{item}} </td>
+                </tr>
+                <tr>
+                  <td> Promedio de valoracion de contenido Inmersivo </td>
+                  <td *ngFor="let item of promEventoInm"> {{item}} </td>           
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+
+    </div>
+</div>

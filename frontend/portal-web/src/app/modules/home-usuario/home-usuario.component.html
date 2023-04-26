@@ -1,0 +1,60 @@
+<!-- <div class="container-fluid page ">
+  <div class="d-flex page__box p-3 mt-2">Perfil de usuarios</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="row">
+      <div class="col-4 btn-group p-1" role="group" aria-label="Basic example" *ngFor="let mydata of myData">
+       <button type="button" (click)="ngUpdatC(mydata)" class="btn btn-secondary">{{mydata.titulo}}</button>
+      </div>
+      <div class="row">
+        <div class="col-6  p-2 text-center">
+          <img-comparison-slider>
+            <img  slot="first" [src]="upData.slider[0].antes"/>
+            <img  slot="second" [src]="upData.slider[0].ahora" />
+          </img-comparison-slider>
+        </div>
+        <div class="col-6 p-2">
+          <h2 class="text-center">{{upData.titulo}}</h2>
+          <p>
+            {{upData.descripcion}}
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="col-12  p-2 text-center">
+      <app-caarousel [marcador]="upData.img"></app-caarousel>
+      </div>
+
+    </div>
+
+
+    </div>
+  </div> -->
+
+
+<div class="container">
+  <div style="display: block">
+    <canvas baseChart 
+                [data]="lineChartData"
+                [options]="lineChartOptions"
+                [type]="lineChartType">
+    </canvas>
+    </div>
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
+        <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+</div>
+
+
+
+
+
+
+   
+

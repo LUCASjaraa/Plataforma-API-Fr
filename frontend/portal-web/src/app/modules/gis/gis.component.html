@@ -1,0 +1,224 @@
+<div class="container-fluid page text-center">
+  <div class="d-flex page__box p-3 mt-2"> Informacion de Api </div>
+    <div class="page__content shadow p-3">
+        <div class="row-6">
+            <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="titulo">{{ accion | uppercase }} MARCADOR</h5>
+
+                                <form [formGroup]="form" (ngSubmit)="addInformacion()">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-map-pin"
+                                              [class.green-icon]="this.form.get('lat')?.valid"
+                                              [class.red-icon]="this.form.get('lat')?.invalid && this.form.get('lat')?.touched"></i>
+                                          </span>
+                                          <input formControlName="lat" type="text" class="form-control" placeholder="Latitud">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-map-pin"
+                                              [class.green-icon]="this.form.get('lng')?.valid"
+                                              [class.red-icon]="this.form.get('lng')?.invalid && this.form.get('lng')?.touched"></i>
+                                          </span>
+                                          <input formControlName="lng" type="text" class="form-control" placeholder="Longitud">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('titulo')?.valid"
+                                              [class.red-icon]="this.form.get('titulo')?.invalid && this.form.get('titulo')?.touched"></i>
+                                          </span>
+                                          <input formControlName="titulo" type="text" class="form-control" placeholder="Titulo">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('tipo')?.valid"
+                                              [class.red-icon]="this.form.get('tipo')?.invalid && this.form.get('tipo')?.touched"></i>
+                                          </span>
+                                          <input formControlName="tipo" type="text" class="form-control" placeholder="Tipo">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-street-view"
+                                              [class.green-icon]="this.form.get('zona')?.valid"
+                                              [class.red-icon]="this.form.get('zona')?.invalid && this.form.get('zona')?.touched"></i>
+                                          </span>
+                                          <input formControlName="zona" type="text" class="form-control" placeholder="Zona">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-calendar-alt"
+                                              [class.green-icon]="this.form.get('fecha')?.valid"
+                                              [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                                          </span>
+                                          <input formControlName="fecha" type="date" class="form-control">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="input-group input-group-lg mb-3">
+                                      <span class="input-group-text">
+                                          <i class="fas fa-comment"
+                                          [class.green-icon]="this.form.get('descrip')?.valid"
+                                          [class.red-icon]="this.form.get('descrip')?.invalid && this.form.get('descrip')?.touched"></i>
+                                      </span>
+                                      <input formControlName="descrip" type="text" class="form-control" placeholder="Descripcion">
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-lg-4">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('img_antes')?.valid"
+                                              [class.red-icon]="this.form.get('img_antes')?.invalid && this.form.get('img_antes')?.touched"></i>
+                                          </span>
+                                          <input formControlName="img_antes" type="text" class="form-control" placeholder="Imagen Antes">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('img_despues')?.valid"
+                                              [class.red-icon]="this.form.get('img_despues')?.invalid && this.form.get('img_despues')?.touched"></i>
+                                          </span>
+                                          <input formControlName="img_despues" type="text" class="form-control" placeholder="Imagen Despues">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('img_actual')?.valid"
+                                              [class.red-icon]="this.form.get('img_actual')?.invalid && this.form.get('img_actual')?.touched"></i>
+                                          </span>
+                                          <input formControlName="img_actual" type="text" class="form-control" placeholder="Imagen Actual">
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('slider_antes')?.valid"
+                                              [class.red-icon]="this.form.get('slider_antes')?.invalid && this.form.get('slider_antes')?.touched"></i>
+                                          </span>
+                                          <input formControlName="slider_antes" type="text" class="form-control" placeholder="Slider Antes">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="input-group input-group-lg mb-3">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-pen"
+                                              [class.green-icon]="this.form.get('slider_actual')?.valid"
+                                              [class.red-icon]="this.form.get('slider_actual')?.invalid && this.form.get('slider_actual')?.touched"></i>
+                                          </span>
+                                          <input formControlName="slider_actual" type="text" class="form-control" placeholder="Slider Ahora">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2">
+                                        <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg">
+                                            <i class="fas fa-database"></i>&nbsp; Aceptar</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="titulo">LISTADO DE MARCADORES</h5>
+                                <div style="overflow-x:auto;" class="col-lg-12">
+                                  <table class="table table-striped table-bordered table-sm" cellspacing="0"
+                                  width="100%">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Lat</th>
+                                        <th scope="col">Lng</th>
+                                        <th scope="col">Titulo</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Descrip</th>
+                                        <th scope="col">Zona</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Img Antes</th>
+                                        <th scope="col">Img Despues</th>
+                                        <th scope="col">Img Actual</th>
+                                        <th scope="col">Slider Antes</th>
+                                        <th scope="col">Slider Actual</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let marc of marcador; let item=index">
+                                        <td>
+                                          <!-- <i (click)="eliminarTarjeta(item)" class="far fa-trash-alt text-danger"></i> -->
+
+                                          <button mat-button (click)="deleteInformacion(marc.id)">
+                                            <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                                          </button>
+                                      </td>
+                                      <td>
+                                        <!-- <i (click)="editarTarjeta(tarjeta)" class="far fa-edit text-info"></i> -->
+                                        <button mat-button (click)="updateInformacion(marc)">
+                                          <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                                        </button>
+                                      </td>
+                                        <th scope="row">{{item+1}}</th>
+                                        <!-- <td>{{marc.id}}</td> -->
+                                        <td>{{marc.pos.lat}}</td>
+                                        <td>{{marc.pos.lng}}</td>
+                                        <td>{{marc.titulo}}</td>
+                                        <td>{{marc.tipo}}</td>
+                                        <td>{{marc.descripcion}}</td>
+                                        <td>{{marc.zona}}</td>
+                                        <td>{{marc.fecha}}</td>
+                                        <td>{{marc.img[0].antes}}</td>
+                                        <td>{{marc.img[0].justo_despues}}</td>
+                                        <td>{{marc.img[0].ahora}}</td>
+                                        <td>{{marc.slider[0].antes}}</td>
+                                        <td>{{marc.slider[0].ahora}}</td>
+
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+  </div>
+</div>

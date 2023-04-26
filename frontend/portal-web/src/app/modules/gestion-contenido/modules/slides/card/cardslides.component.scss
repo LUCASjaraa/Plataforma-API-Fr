@@ -1,0 +1,35 @@
+
+.slides {
+  display: flex;
+  flex-direction: column;
+}
+
+
+//web desk
+@media screen and (min-width: 64em){
+  .slides {
+    display:grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 15px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+
+
+.img{
+
+}
+
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

@@ -1,0 +1,32 @@
+<div class="container-login">
+    <div class="header text-center">
+        <h2 class="w-100 d-none d-md-inline-block">Portal </h2>
+        <h3 class="w-100 d-md-none">Portal tecnología</h3>
+    </div>
+    <div class="container-fluid text-center">
+        <mat-card class="login">
+            <img src="./assets/imagenes/logo-onemi.png" alt="logo" class="img-fluid">
+            <br><br>
+            <!-- <form [formGroup]="loginForm" (submit)="onSubmit()"> -->
+                <form>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Usuario" required>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput type="password" placeholder="Contraseña" required>
+                    <mat-icon matSuffix>lock</mat-icon>
+                </mat-form-field>
+                <button mat-flat-button color="primary" type="submit">
+                    Ingresar
+                    <mat-icon>navigate_next</mat-icon>
+                </button>
+                <br><br>
+            </form>
+            <button mat-flat-button color="primary" routerLink="/registro">
+                Registrarse
+            </button>  
+        </mat-card>
+
+    </div>
+</div>

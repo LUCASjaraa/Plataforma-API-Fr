@@ -1,0 +1,24 @@
+<form [formGroup]="galeriaForm" (submit)="submit()">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <mat-select>
+        <mat-option   value="imagen" selected>Imagen</mat-option>
+        <mat-option  value="video">video</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Descripcion" value="value" formControlName="descripcion">
+    </mat-form-field>
+
+    <input
+      formControlName="file"
+      type="file"
+      (change)="changeFile($event)"
+    />
+  </div>
+  <button>Submit</button>
+</form>
+
+

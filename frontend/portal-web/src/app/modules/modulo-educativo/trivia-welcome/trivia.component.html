@@ -1,0 +1,61 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Bienvenido a la Trivia! </div>
+  <div class="page__content shadow p-3 position-relative">
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col-7 py-3">
+    <div>
+  
+      <p class="col-md-8 fs-4">Pone a prueba tus conocimientos con este divertido juego!</p>
+      <h4>Instrucciones:</h4>
+      <ol>
+          <li>Cada respuesta correcta suma 10 puntos</li>
+          <li>Cada respuesta incorrecta descuenta 10 puntos</li>
+          <li>Tendras un tiempo limitado para responder!
+          </li>
+      </ol>
+      <div class="name col-md-4 my-3">
+          <label>Ingresa tu nombre:</label>
+          <input [formControl]="nombre" type="text" class="form-control">
+      </div>
+      
+      <div class="col-md-4 my-3"> 
+          <label>Dificultad:</label>
+          <br>
+          <form [formGroup]="form">
+              <div class="form-check">
+                  <br>
+                  <input type="radio" formControlName="dif" name="dif"  value="Facil" checked>
+                  <label class="form-check-label">
+                    Facil
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" formControlName="dif" name="dif"  value="Intermedio">
+                  <label class="form-check-label">
+                    Intermedio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" formControlName="dif" name="dif"  value="Dificil">
+                  <label class="form-check-label">
+                    Dificil
+                  </label>
+                </div>
+          </form>
+      </div>  
+  
+      <button class="btn btn-primary btn-lg" routerLink="/quiz" (click)="startQuiz()">Iniciar la Trivia!!</button>
+  </div>
+  </div>
+  <div class="col-4 py-3">
+    <app-ranking></app-ranking>
+  </div>
+</div>
+  
+
+
+  </div>
+</div>
+

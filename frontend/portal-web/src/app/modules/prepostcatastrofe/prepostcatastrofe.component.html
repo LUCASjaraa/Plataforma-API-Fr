@@ -1,0 +1,87 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Desastres Naturales</div>
+    <div class="page__content shadow p-3 position-relative">
+
+
+        <!-- <div class="row">
+            <div class="col-3" *ngFor="let mydata of myData">
+                <div class="card">
+                          <img class="card-img-top" src='https://www.subpesca.cl/portal/617/articles-89765_galeria006.jpg' alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">{{mydata.titulo}}</h5>
+                            <p class="card-text">{{mydata.descrip}}</p>
+                          </div>
+                          <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                          </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <ng-container *ngIf="!detalle">
+          <div class="container py-4">
+            <div class="row">
+              <div class="col-lg-4" *ngFor="let mydata of myData | paginate: {itemsPerPage: 3, currentPage: page}">
+                <div class="card" (click)="cambiar(mydata.id)" style="cursor: pointer;">
+                  <!-- <div class="card" (click)="cambiar(mydata.id)" routerLink="/memoria" style="cursor: pointer;"> -->
+                  <img src='{{mydata.img_evento}}' class="card-img-top"/>
+                  <div class="card-body">
+                    <h5 class="card-title">{{mydata.titulo}}</h5>
+                    <p class="card-text">{{mydata.descripcion}}</p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">Seccion de likes y comentarios</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="detalle">
+          <div class="row">
+            <div class="col-7  p-2 text-center">
+                <img-comparison-slider>
+                  <img  id="image" slot="first" [src]= "myData[0].slider[0].url_antes"/>
+                  <img  id="image" slot="second" [src]="myData[0].slider[0].url_despues" />
+                </img-comparison-slider>
+            </div>
+            <div class="col-5 p-3 ">
+                <h2 class="text-center">{{myData[0].titulo}}</h2>
+                <p class="p-3">
+                  {{myData[0].descripcion}}
+                  {{myData[0].descripcion}}
+                </p>
+          </div>
+
+          <div class="col-7 p-2 text-center">
+            <p>
+                {{myData[0].descripcion}}
+                {{myData[0].descripcion}}
+            </p>
+
+          </div>
+
+            <div class="col-5  text-center">
+
+                <app-caarousel [marcador]="upData.img"> </app-caarousel>
+                <div class="container">
+                  <div class="row" id="botones">
+                    <button class=" btn col p-3" (click)="hola()" style = "border: 2px solid black" routerLink='/comentarios' > Comentarios    </button>
+                    <button class=" btn col"  style = "border: 2px solid black" routerLink='/galeria'> Galeria de Imagenes </button>
+                 </div>
+                </div>
+
+
+            </div>
+
+          </div>
+        </ng-container>
+
+
+    </div>
+</div>

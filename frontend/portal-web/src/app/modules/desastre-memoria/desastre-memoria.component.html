@@ -1,0 +1,43 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Detalle Catastrofes</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="row">
+        <div class="col-7  p-2 text-center">
+            <img-comparison-slider>
+              <img  slot="first" [src]= "myData[0].slider[0].url_antes"/>
+              <img  slot="second" [src]="myData[0].slider[0].url_despues" />
+            </img-comparison-slider>
+        </div>
+        <div class="col-5 p-3 " style = "border: 2px solid red">
+            <h2 class="text-center">{{myData[0].titulo}}</h2>
+            <p class="p-3">
+              {{myData[0].descripcion}}
+              {{myData[0].descripcion}}
+            </p>
+      </div>
+
+      <div class="col-7 p-2 text-center">
+        <p>
+            {{myData[0].descripcion}}
+            {{myData[0].descripcion}}
+        </p>
+
+      </div>
+
+        <div class="col-5  text-center">
+
+            <app-caarousel [marcador]="upData.img"> </app-caarousel>
+            <div class="container">
+              <div class="row" id="botones">
+                <button class=" btn col p-3"  style = "border: 2px solid black" routerLink='/comentarios' > Comentarios    </button>
+                <button class=" btn col"  style = "border: 2px solid black" routerLink='/galeria'> Galeria de Imagenes </button>
+             </div>
+            </div> 
+
+
+        </div>
+
+      </div>
+
+    </div>
+</div>

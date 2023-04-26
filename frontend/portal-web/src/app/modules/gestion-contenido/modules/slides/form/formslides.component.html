@@ -1,0 +1,32 @@
+<form [formGroup]="salidesFrom" (submit)="ngSubmit()">
+<p>titulo</p>
+<input type="text" name="" id="" formControlName="titulo">
+
+<p>Antes</p>
+<input type="file" name="" id="" (change)="changeFiles($event, 'antesFile')" formControlName="antesFile">
+
+<input type="date" name="" id="" formControlName="antesfecha">
+
+<textarea name="" id="" cols="30" rows="10"formControlName="antesdescripcion"></textarea>
+
+<p>Durante</p>
+
+<input type="file" name="" id="" (change)="changeFiles($event, 'duranteFile')" formControlName="duranteFile" >
+
+<input type="date" name="" id="" formControlName="durantefecha" >
+
+<textarea name="" id="" cols="30" rows="10" formControlName="durantedescripcion" ></textarea>
+
+<p>Despues</p>
+<input type="file" name="" id="" (change)="changeFiles($event, 'jdespuesFile')" formControlName="jdespuesFile" >
+
+<input type="date" name="" id="" formControlName="jdespuesfecha" >
+
+<textarea name="" id="" cols="30" rows="10" formControlName="jdespuesdescripcion" ></textarea>
+
+<p>ahora</p>
+<input type="file" name="" id="" (change)="changeFiles($event, 'ahoraFile')" formControlName="ahoraFile" >
+<input type="date" name="" id="" formControlName="ahorafecha" >
+<textarea name="" id="" cols="30" rows="10" formControlName="ahoradescripcion" ></textarea>
+<button type="submit">Enviar</button>
+</form>

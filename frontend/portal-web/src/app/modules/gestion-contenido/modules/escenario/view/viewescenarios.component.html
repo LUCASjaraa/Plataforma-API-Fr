@@ -1,0 +1,52 @@
+
+<mat-card class="shadow p-3">
+  <mat-card-header>
+    <mat-card-title>{{ dataEscenario.titulo }}</mat-card-title>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="toggleEdit()" >Editar Escenario</button>
+    </mat-card-actions>
+    <mat-card-subtitle>{{ dataEscenario.short_descrip }} </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button  (click)="toggleAddEscenario()" >Agregar Puntos de Interes</button>
+      <button mat-raised-button [matBadge]="pIntres.length" *ngIf="isEscenario" (click)="toggleDisplay()" >Puntos de Interes</button>
+    </mat-card-actions>
+    <!--Formulario Agregar punto de interes-->
+    <div *ngIf="!isEscenario" >
+      <app-formescenario [editEscenario]="dataEscenario"  ></app-formescenario>
+    </div>
+
+    <div *ngIf="!isPinteres">
+      <app-formpuntosinteres [escenario_id]="dataEscenario.id"></app-formpuntosinteres>
+
+    </div>
+
+    <!--Este if es para ocultar todo cuando se agrega un escenario nuevo-->
+    <div *ngIf="!isDisplay" >
+      <div *ngIf="isPinteres" >
+        <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-md-2 col-md-offset-1">
+            <mat-nav-list>
+              <h2 matSubheader class="mt-2">Menu de Opciones</h2>
+              <a mat-list-item routerLinkActive="list-item-active" *ngFor="let puntoInteres  of pIntres ; let i = index " (click)="changePinteres(i)">{{puntoInteres.titulo}}</a>
+            </mat-nav-list>
+          </div>
+
+          <div class="col">
+                <app-viewpuntointeres [puntoIntres]=pIntres[numbrePintes] *appUpdate="recargarPi" > </app-viewpuntointeres>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>
+
+
+

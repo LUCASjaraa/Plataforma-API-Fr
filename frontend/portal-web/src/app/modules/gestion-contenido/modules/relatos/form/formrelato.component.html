@@ -1,0 +1,41 @@
+<form [formGroup]="relatoFrom" (submit)="submit()">
+
+    <input type="text" formControlName="titulo">
+    <input
+      formControlName="Archivo"
+      (change)="changeFile($event)"
+      type="file"/>
+      <button mat-raised-button color="primary" >Submit</button>
+
+
+</form>
+
+
+
+
+<!--<pre> {{escenarioForm.value | json}}</pre>-->
+
+<form >
+  <div class="row ">
+    <div  class="row ">
+          <div class=" col">
+            <label for="titulo" class="col col-form-label">Titulo : </label>
+            <div class="col">
+              <input type="text" class="form-control" name="titulo" id="titulo"  >
+            </div>
+          </div>
+
+          <div class=" col">
+            <label for="img_url" class="col col-form-label">Direccion : </label>
+            <div class="col">
+              <input type="file" class="form-control" name="img_url" id="img_url" >
+            </div>
+          </div>
+          <div class="col">
+            <button mat-raised-button color="primary">Primary</button>
+
+          </div>
+    </div>
+  </div>
+</form>
+

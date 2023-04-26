@@ -1,0 +1,11 @@
+.card-profile {
+  @extend %common-card-testimonial !optional;
+  .card-header:not([class*="card-header-"]) {
+    background: transparent;
+    box-shadow: none;
+  }
+  .card-avatar {
+    max-width: 130px;
+    max-height: 130px;
+  }
+}

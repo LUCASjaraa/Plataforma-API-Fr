@@ -1,0 +1,7 @@
+@use "../core/mixins/buttons";
+
+// extra for Material Kit PRO
+.mat-raised-button.btn {
+  // Social colors
+  @include buttons.bmd-social-buttons();
+}

@@ -1,0 +1,51 @@
+@use "sass:string";
+@use "mixins/forms";
+@use "variables/brand";
+
+.progress {
+  height: 4px;
+  border-radius: 0;
+  box-shadow: none;
+  background: #dddddd;
+  margin-bottom: 20px;
+  .progress-bar {
+    box-shadow: none;
+    @include forms.variations(
+      string.unquote(".progress-bar"),
+      string.unquote(""),
+      background-color,
+      brand.$brand-primary
+    );
+    &.progress-bar-primary {
+      background: brand.$brand-primary !important;
+    }
+    &.progress-bar-info {
+      background: brand.$brand-info;
+    }
+    &.progress-bar-success {
+      background: brand.$brand-success;
+    }
+    &.progress-bar-warning {
+      background: brand.$brand-warning;
+    }
+    &.progress-bar-danger {
+      background: brand.$brand-danger;
+    }
+  }
+
+  &.progress-line-primary {
+    background: rgba(brand.$brand-primary, 0.2);
+  }
+  &.progress-line-info {
+    background: rgba(brand.$brand-info, 0.2);
+  }
+  &.progress-line-success {
+    background: rgba(brand.$brand-success, 0.2);
+  }
+  &.progress-line-warning {
+    background: rgba(brand.$brand-warning, 0.2);
+  }
+  &.progress-line-danger {
+    background: rgba(brand.$brand-danger, 0.2);
+  }
+}

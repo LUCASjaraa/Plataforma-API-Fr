@@ -1,0 +1,13 @@
+@use "colors";
+
+// Bootstrap brand color customization
+
+/*     brand Colors              */
+
+$brand-primary: colors.$purple-500 !default;
+$brand-info: colors.$cyan-500 !default;
+$brand-success: colors.$green-500 !default;
+$brand-warning: colors.$orange-500 !default;
+$brand-danger: colors.$red-500 !default;
+$brand-rose: colors.$pink-500 !default;
+$brand-inverse: colors.$black-color !default;

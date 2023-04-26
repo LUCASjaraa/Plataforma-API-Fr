@@ -1,0 +1,19 @@
+<div class="container py-4">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let galeria of galeria | paginate: {itemsPerPage: 3, currentPage: page}">
+
+          <div class="card">
+            <img src="{{galeria.contenido}}" class="card-img-top " id=image/>
+            <div class="card-body">
+              <h5 class="card-title">  <app-datausuario [id]="galeria.usuario_id"> </app-datausuario>  </h5>  
+                <p>{{ galeria.fecha_subida }}</p>
+                <p>{{ galeria.descripcion }}</p>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <div class="text-center">
+      <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+  </div>

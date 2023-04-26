@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <button  (click)="addSlides()" mat-raised-button>Agregar</button>
+  <div *ngIf="!vSlides">
+    <app-formslides [id]="id"></app-formslides>
+  </div>
+
+  <div *ngIf="vSlides">
+    <app-cardslides *ngFor="let slides of slides | paginations : page_zise : page_number " [slides]="slides"></app-cardslides>
+
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePage($event)" [length]="slides.length"
+      [pageSize]="page_zise" aria-label="Select page">
+    </mat-paginator>
+  </div>
+
+</div>
+
+
+

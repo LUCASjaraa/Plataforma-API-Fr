@@ -1,0 +1,7 @@
+
+<form action="" [formGroup]="comentarioForm" (submit)="submit()">
+<input type="text" name="" id="" formControlName="titulo">
+<input type="text" name="" id="" formControlName="contenido">
+<button>Submit</button>
+</form>
+<pre> {{comentarioForm.value | json}}</pre>

@@ -1,0 +1,31 @@
+<div class="datointeres">
+  <button (click)="addDinteres()" mat-raised-button>Agregar</button>
+<div *ngIf="!vdatosinteres">
+  <app-formdatosinteres [id]="id"></app-formdatosinteres>
+</div>
+
+
+  <div *ngIf="vdatosinteres" >
+    <div class="products" >
+      <app-carddatosdeinteres
+      *ngFor=" let datosdeinteres of datosinteres | paginations : page_zise : page_number"
+      [datosdeinteres]="datosdeinteres"
+    >
+    </app-carddatosdeinteres>
+    </div>
+
+    <mat-paginator
+    #paginator
+    class="demo-paginator"
+    (page)="handlePage($event)"
+    [length]="datosinteres.length"
+    [pageSize]="page_zise"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+
+
+  </div>
+
+
+</div>

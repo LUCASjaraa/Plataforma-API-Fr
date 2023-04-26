@@ -1,0 +1,15 @@
+<p>formdatosinteres works!</p>
+
+<!--
+  "titulo": "¿Sabías que?",
+  "imagen_url": "...",
+  "descripcion": "Si este desastre volviese a ocurrir en este mismo instante no tendrías tiempo para escap
+-->
+
+<form action="" [formGroup]="dinteresFrom" (submit)="ngSubmit()">
+  <input type="text" name="titulo" id="titulo" formControlName="titulo">
+  <textarea name="descripcion" id="descripcion" cols="30" rows="10" formControlName="descripcion"></textarea>
+  <button type="submit">Agregar</button>
+</form>
+
+<pre> {{dinteresFrom.value | json}}</pre>

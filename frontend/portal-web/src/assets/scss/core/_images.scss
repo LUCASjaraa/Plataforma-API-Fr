@@ -1,0 +1,13 @@
+@use "mixins/colored-shadows";
+@use "variables/bootstrap-material-design";
+
+.img-thumbnail {
+  border-radius: 16px;
+}
+.img-raised {
+  @include colored-shadows.shadow-big-image();
+}
+
+.rounded {
+  border-radius: bootstrap-material-design.$border-radius-large !important;
+}

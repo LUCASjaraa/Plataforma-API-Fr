@@ -1,0 +1,103 @@
+<div class="container-login">
+    <div class="header text-center">
+        <h2 class="w-100 d-none d-md-inline-block">Formulario de registro </h2>
+    </div>
+    <div class="container-fluid text-center">
+        <mat-card class="login">
+            <img src="./assets/imagenes/logo-onemi.png" alt="logo" class="img-fluid">
+            <br><br>
+            <form>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-map-pin"
+                          [class.green-icon]="this.form.get('lat')?.valid"
+                          [class.red-icon]="this.form.get('lat')?.invalid && this.form.get('lat')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-map-pin"
+                          [class.green-icon]="this.form.get('lng')?.valid"
+                          [class.red-icon]="this.form.get('lng')?.invalid && this.form.get('lng')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="text" class="form-control" placeholder="Apellido">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-pen"
+                          [class.green-icon]="this.form.get('titulo')?.valid"
+                          [class.red-icon]="this.form.get('titulo')?.invalid && this.form.get('titulo')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="number" class="form-control" placeholder="Edad">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-pen"
+                          [class.green-icon]="this.form.get('tipo')?.valid"
+                          [class.red-icon]="this.form.get('tipo')?.invalid && this.form.get('tipo')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="password" class="form-control" placeholder="Clave">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                    <!-- <span class="input-group-text">
+                        <i class="fas fa-comment"
+                        [class.green-icon]="this.form.get('descrip')?.valid"
+                        [class.red-icon]="this.form.get('descrip')?.invalid && this.form.get('descrip')?.touched"></i>
+                    </span> -->
+                    <input formControlName="" type="email" class="form-control" placeholder="Correo">
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-street-view"
+                          [class.green-icon]="this.form.get('zona')?.valid"
+                          [class.red-icon]="this.form.get('zona')?.invalid && this.form.get('zona')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="text" class="form-control" placeholder="Region">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-group input-group-lg mb-3">
+                      <!-- <span class="input-group-text">
+                          <i class="fas fa-calendar-alt"
+                          [class.green-icon]="this.form.get('fecha')?.valid"
+                          [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                      </span> -->
+                      <input formControlName="" type="text" class="form-control" placeholder="Ciudad">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <!-- <span class="input-group-text">
+                      <i class="fas fa-comment"
+                      [class.green-icon]="this.form.get('descrip')?.valid"
+                      [class.red-icon]="this.form.get('descrip')?.invalid && this.form.get('descrip')?.touched"></i>
+                  </span> -->
+                  <input formControlName="" type="text" class="form-control" placeholder="Inserta un link de imagen de perfil">
+                </div>                
+                <div class="d-grid gap-2">
+                    <button  type="submit" class="btn btn-success btn-lg">
+                        <i class="fas fa-database"></i>&nbsp; Aceptar</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

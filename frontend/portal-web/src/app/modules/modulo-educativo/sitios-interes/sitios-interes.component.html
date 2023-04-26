@@ -1,0 +1,30 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Sitios de Interes</div>
+  <div class="page__content shadow p-3 position-relative">
+
+    <ng-container>
+      <div class="row">
+        <div class="col-lg-4" *ngFor="let tar of this.tarjetas | paginate: {itemsPerPage: 6, currentPage: page}">
+          <div class="card border-dark mb-3" style="max-width: 540px;">
+            <a href="{{tar.site}}">
+              <span class="link"></span>
+            </a>
+            <div class="row g-0">
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align:center;">{{tar.subtitulo}}</h5>
+                  <p class="card-text">{{tar.contenido}}</p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <img src="./assets/imagenes/logo-onemi.png" class="img-fluid rounded-start" alt="Logo Sinapred">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

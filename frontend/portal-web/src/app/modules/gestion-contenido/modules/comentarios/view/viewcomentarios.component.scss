@@ -1,0 +1,32 @@
+
+    .comentarios {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 15px;
+
+    }
+    //tablets
+    @media screen and (min-width: 40em) and (max-width: 63.9em){
+      .comentarios {
+        display:grid;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+
+        grid-gap: 15px;
+      }
+    }
+
+    //web desk
+    @media screen and (min-width: 64em){
+      .comentarios {
+        display:grid;
+        //grid-template-columns: repeat(3, 1fr);
+//        grid-template-columns: repeat( auto-fit, minmax(1, 1fr) );
+      grid-template-columns: auto auto ;
+
+        grid-gap: 15px;
+      }
+    }
+button{
+
+  margin-bottom: 1%;
+}

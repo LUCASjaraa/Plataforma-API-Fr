@@ -1,0 +1,68 @@
+
+
+<!--<pre>{{ escenariosID.value | json}}</pre>-->
+<form  [formGroup]="escenariosID">
+  <div>
+    <select name="cars" id="cars" formControlName="escenario_id"  (ngModelChange)="onChange($event)" >
+          <option  *ngFor="let escenario of Escenarios" [value]="escenario.id"  >{{escenario.titulo}}</option>
+    </select>
+  </div>
+  <div  *ngFor="let categoriaE of CategoriaEvento;let i = index" class="form-check form-check-inline form-check form-switch" formArrayName="categorias">
+     <input class="form-check-input"  id="flexCheckChecked"  type="checkbox" [formControlName]="i" (ngModelChange)="onChangeSelects($event, categoriaE.id)">
+     <label class="form-check-label" for="flexCheckChecked"><img  style="width: 20%;" [src]="categoriaE.icon" alt="">{{categoriaE.tipo}}</label>
+  </div>
+</form>
+
+<agm-map class="mapa" [scrollwheel]="false" [disableDoubleClickZoom]="false" [latitude]="zoom.mapLatitude"  [longitude]="zoom.mapLongitude" (zoomChange)="zoomChange($event)" [zoom]="zoom.mapZoom" >
+  <agm-marker *ngFor="let points of PuntosInteres"
+              [latitude]="points.pos_evento.lat"
+              [longitude]="points.pos_evento.lng"
+              iconUrl ="{{Icons(points.categoria)}}">
+    <agm-info-window [disableAutoPan]="true">
+        <app-info-window-product-content (click)="hola(points.id)">
+          <app-gis-pinteres (cambio)="ngCambioZoom($event)" [id]="points.id" [posPinters] = "points.pos_evento"></app-gis-pinteres>
+        </app-info-window-product-content>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
+
+<!--
+
+
+  const inventario = [
+    {nombre: 'manzanas', cantidad: 2},
+    {nombre: 'bananas', cantidad: 0},
+    {nombre: 'cerezas', cantidad: 5}
+];
+
+const resultado = inventario.find( fruta => fruta.nombre === 'cerezas' );
+
+console.log(resultado); // { nombre: 'cerezas', cantidad: 5 }
+
+
+
+
+iconUrl ="./assets/map/blue.png"
+  <agm-marker *ngFor="let m of mapArrayList; let i = index" (markerClick)="clickedMarker(infowindow)"
+[latitude]="m.geometry.location.lat()" [longitude]="m.geometry.location.lng()"
+[iconUrl] ="
+  {
+    url: m.isClicked ? './assets/images/car.svg' : './assets/images/bike.svg',
+    scaledSize: {
+        width: 40,
+        height: 60
+    }
+}">
+
+
+
+
+
+
+<h1 *ngFor="let points of pointsMap">
+  <p>Lat : {{points.pos_evento.lat}}</p>
+  <p>lng : {{points.pos_evento.lng}}</p>
+</h1>
+
+-->

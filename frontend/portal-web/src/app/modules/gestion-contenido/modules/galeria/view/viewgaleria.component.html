@@ -1,0 +1,26 @@
+<div>
+  <button  mat-raised-button (click)="addgaleria()">Agregar</button>
+
+  <div *ngIf="!vgaleria">
+    <app-formgaleria [id]="id"></app-formgaleria>
+  </div>
+
+  <ng-container *ngIf="vgaleria">
+    <div class="Galeria-Grid">
+      <app-cardgaleria *ngFor="let galeria of galerias | paginations : page_zise : page_number" [galeria]="galeria" [id]="id" ></app-cardgaleria>
+    </div>
+
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePage($event)" [length]="galerias.length"
+      [pageSize]="page_zise" aria-label="Select page">
+    </mat-paginator>
+
+  </ng-container>
+
+
+
+
+</div>
+
+
+
+

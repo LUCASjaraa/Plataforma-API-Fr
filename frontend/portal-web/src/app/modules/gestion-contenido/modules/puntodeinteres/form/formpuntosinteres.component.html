@@ -1,0 +1,232 @@
+
+<form (ngSubmit)="onSubmit()" [formGroup]="puntointeresForm">
+  <div class="row shadow p-3">
+
+
+
+
+    <div class=" row ">
+      <div class="form-group col-md-6">
+        <label for="titulo" class="col-sm-2 col-form-label">Titulo : </label>
+        <div class="col ">
+          <input type="text" class="form-control" name="titulo" id="titulo" required formControlName="titulo">
+        </div>
+      </div>
+      <div class="form-group col">
+        <div class="row">
+          <div class="form-group row">
+            <label for="DescripcionL" class=" col-form-label">Descripcion corta : </label>
+            <div class="">
+              <textarea class="form-control" id="DescripcionL" rows="3" formControlName="descripcion_corta"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="form-group row">
+            <label for="DescripcionL" class=" col-form-label">Descripcion : </label>
+            <div class="">
+              <textarea class="form-control" id="DescripcionL" rows="3" formControlName="descripcion"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col">
+        <label for="img_evento" class="col-sm-2 col-form-label">Imagen : </label>
+            <input type="file" class="form-control" name="img_evento" id="img_evento" (change)="changeFiles($event,'fileimg_evento')" formControlName="fileimg_evento">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="fecha" class="col-sm-2 col-form-label">Fecha : </label>
+        <div class="col ">
+          <input data-date-format="DD MMMM YYYY" type="date" class="form-control" name="fecha" id="fecha" formControlName="fecha">
+        </div>
+      </div>
+
+    </div>
+
+<div class="row">
+  <div class="form-group col">
+    <label for="Descripcion" class="col col-form-label">Zona : </label>
+    <div class="col">
+      <select class="form-select" name="zona" id="zona" aria-label="Default select example" formControlName="zona">
+
+
+        <option value="Zona Urbana">Zona Urbana</option>
+        <option value="Zona Rural">Zona Rural</option>
+      </select>
+
+    </div>
+  </div>
+  <div class="form-group col">
+    <label for="categoria" class="col col-form-label">Categoria : </label>
+    <div class="col ">
+      <select class="form-select" aria-label="Default select example" formControlName="categoria">
+        <option *ngFor="let pCategoria of pCategoria" [value]="pCategoria.id" >{{pCategoria.tipo}}</option>
+    </select>
+
+    </div>
+  </div>
+</div>
+
+    <div class="row">
+      <div class="form-group col">
+
+        <div class="row">
+
+          <div class="form-group col">
+            <label for="lat" class="col col-form-label">Latitud  : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="lat" id="lat" formControlName="latitud">
+            </div>
+          </div>
+          <div class="form-group col">
+            <label for="lng" class="col col-form-label">Longitud  : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="lng" id="lng" formControlName="longitud">
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label for="alt" class="col col-form-label">Altura : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="alt" id="alt" formControlName="altura">
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+      <div class="form-group col">
+
+        <div class="row">
+          <div  class="form-group col">
+            <label for="head" class="col col-form-label">Head : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="head" id="head" formControlName="head">
+            </div>
+          </div>
+
+          <div  class="form-group col">
+            <label for="pitch" class=" col-form-label">pitch : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="pitch" id="pitch" formControlName="pitch">
+            </div>
+          </div>
+
+          <div  class="form-group col">
+            <label for="roll" class="col col-form-label">roll : </label>
+            <div class="col">
+              <input type="number" class="form-control" name="roll" id="roll" formControlName="roll">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="form-group col">
+        <label for="img_evento" class="col-sm-2 col-form-label">Imagen Camara: </label>
+        <div class="row">
+          <div class="col">
+            <input type="file" class="form-control" name="img_evento" id="img_evento" (change)="changeFiles($event,'oneFileimg')" formControlName="oneFileimg">
+          </div>
+          <div class="col">
+            <input type="file" class="form-control" name="img_evento" id="img_evento" (change)="changeFiles($event,'twoFileimg')" formControlName="twoFileimg">
+          </div>
+        </div>
+      </div>
+      <div class="form-group col">
+        <label for="titulo" class="col-sm-2 col-form-label">Audio Camara : </label>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <input type="file" class="form-control" name="audio" id="audio" (change)="changeFiles($event,'oneFileaudio')" formControlName="oneFileaudio">
+              </div>
+              <div class="col">
+                <input type="file" class="form-control" name="audio" id="audio" (change)="changeFiles($event,'twoFileaudio')"  formControlName="twoFileaudio">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class=" row ">
+      <div class="form-group col-md-6">
+        <label for="titulo" class="col-sm-2 col-form-label">Imagen Antes : </label>
+        <div class="col ">
+          <input type="file" class="form-control" name="img_evento" id="img_evento" (change)="changeFiles($event,'file_antes')"  formControlName="file_antes">
+
+        </div>
+      </div>
+      <div class="form-group col">
+        <div class="row">
+          <div class="form-group row">
+            <label for="DescripcionL" class=" col-form-label">Imagen Despues : </label>
+            <div class="">
+              <input type="file" class="form-control" name="img_evento" id="img_evento" (change)="changeFiles($event,'file_despues')" formControlName="file_despues">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="form-group row">
+            <label for="DescripcionL" class=" col-form-label">Descripcion : </label>
+            <div class="">
+              <textarea class="form-control" id="DescripcionL" rows="3" formControlName="addescripcion"></textarea>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <button class="btn btn-success"> Agregar</button>
+  </div>
+
+</form>
+<pre>{{puntointeresForm.value | json}}</pre>
+<pre>{{fPuntoIntres | json}}</pre>
+<h1>{{escenario_id}}</h1>
+

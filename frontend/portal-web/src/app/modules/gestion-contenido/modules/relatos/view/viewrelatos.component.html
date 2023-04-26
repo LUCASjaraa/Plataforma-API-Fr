@@ -1,0 +1,18 @@
+<div>
+  <button mat-raised-button (click)="addRelatos()">Agregar</button>
+  <div *ngIf="!vrelato">
+    <app-formrelato [id]="id"></app-formrelato>
+  </div>
+
+  <ng-container *ngIf="vrelato">
+    <div class="products" >
+      <app-cardrelato *ngFor="let relato of relatos | paginations : page_zise : page_number" [relato]="relato"
+        [id]="id">
+      </app-cardrelato>
+    </div>
+    <mat-paginator #paginator class="demo-paginator" (page)="handlePage($event)" [length]="relatos.length"
+      [pageSize]="page_zise" aria-label="Select page">
+    </mat-paginator>
+  </ng-container>
+
+</div>
